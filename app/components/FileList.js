@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-import {createFile, deleteFile, 
+import {createFile, deleteFile,
         renameFile, openFile} from 'actions/files';
 
 class FileRenameForm extends React.Component {
@@ -50,7 +50,7 @@ class FileItem extends React.Component {
       rename: props.rename
     };
   }
-  
+
   handleFileRename(event) {
     const {files, dispatch} = this.props;
     this.setState({rename: true});
@@ -83,11 +83,11 @@ class FileItem extends React.Component {
         [block + "__item"]: true,
         [block + "__item--current"]: isCurrent
       })}>
-        <a href="#" 
+        <a href="#"
            onDoubleClick={this.handleFileRename.bind(this)}
            onClick={this.handleClick.bind(this)}>
           {this.state.rename && (
-            <FileRenameForm 
+            <FileRenameForm
                 block={block}
                 path={path}
                 onRename={this.renameFile.bind(this)} />
@@ -116,7 +116,10 @@ class FileList extends React.Component {
 
   handleNewFileButtonClick(event) {
     const {files, dispatch} = this.props;
-    const fileName = 'module.py';
+    const files =  _.keys(files).filter(name => name.startsWith(file)).length
+    let fileName = 'module.py';
+    if(files !== 0)
+      fileName = 'module' + files + '.py';
     dispatch(createFile(fileName))
     this.setState({renamingPath: fileName});
     event.preventDefault();
@@ -132,10 +135,10 @@ class FileList extends React.Component {
                       key={path}
                       block={block}
                       path={path}
-                      rename={this.state.renamingPath === path} 
+                      rename={this.state.renamingPath === path}
                       {...this.props} />
         )}
-        <li className={classNames(block + "__item", 
+        <li className={classNames(block + "__item",
                                   block + "__item--new")}>
           <a onClick={this.handleNewFileButtonClick.bind(this)}
              href="#" >+</a>
