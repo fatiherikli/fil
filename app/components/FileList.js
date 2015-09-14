@@ -116,11 +116,10 @@ class FileList extends React.Component {
 
   handleNewFileButtonClick(event) {
     const {files, dispatch} = this.props;
-    const file = 'module', ext = '.py';
     const files =  _.keys(files).filter(name => name.startsWith(file)).length
-    let fileName = file+ext;
+    let fileName = 'module.py';
     if(files !== 0)
-      fileName = file + files + ext;
+      fileName = 'module' + files + '.py';
     dispatch(createFile(fileName))
     this.setState({renamingPath: fileName});
     event.preventDefault();
