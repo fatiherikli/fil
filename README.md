@@ -39,15 +39,15 @@ Now you can open `index.html` in your browser. Also you can run `gulp watch` com
 
 ### Adding new interpreter
 
-Fil speaks with web workers to interpret source code. Fil's interpreter workers should listen `message` event for source code, and should response with stringified JSON object for the stream of running program with `message` event. 
+Fil speaks with web workers to interpret source code. The workers listens `message` event for source code, and streams with stringified JSON object for the output of program.
 
-The message should be plain string. Example:
+The message should be a plain text, like this:
 
 ```ruby
 puts "hey".upcase
 ```
 
-And the response should be a stringified object with `type` and `data` keys:
+After the receiving, the worker will stream stringified json objects with `type` and `data` keys.
 
 ```javascript
 JSON.stringify({
