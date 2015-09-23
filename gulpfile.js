@@ -24,7 +24,7 @@ function compile(watch) {
           stage: 0
         })
       ).transform(
-        stringify(['.py', '.rb', '.md', 
+        stringify(['.py', '.rb', '.md', '.hpc',
                    '.bf', '.yaml', '._js'])
       )
   );

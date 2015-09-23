@@ -33,13 +33,21 @@ class ConsoleToolbar extends React.Component {
         <div className={block + "__interpreter-info"}>
           {interpreterInfo.description}
         </div>
-        <label className={block + "__live-coding"}>
+
+        <div className={block + "__live-coding" + ' live-coding-switch'}>
           <input
             onChange={this.handleLiveCodingCheckbox.bind(this)}
             checked={preferences.liveCoding}
-            type="checkbox" />
+            type="checkbox"
+            name="toggle" />
+          <label for="toggle"><i></i></label>
+          <span></span>
           <span className={block + "__live-coding-text"}>Live coding</span>
-        </label>
+        </div>
+
+
+
+
       </div>
     );
   }
