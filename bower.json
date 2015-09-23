@@ -15,6 +15,7 @@
   "dependencies": {
     "skulpt": "~0.10.1",
     "opal": "~0.8.0",
-    "brainfuck.js": "~1.1.0"
+    "brainfuck.js": "~1.1.0",
+    "happycalculator": "~1.3.2"
   }
 }

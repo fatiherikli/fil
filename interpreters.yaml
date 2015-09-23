@@ -40,3 +40,13 @@ javascript:
   editorMode: "javascript"
   includes: []
   parsingErrors: ["SyntaxError"]
+
+happycalculator:
+  description: "happycalculator"
+  extension: "hpc"
+  workerPath: "build/happycalculator.worker.js"
+  editorMode: "python"
+  includes:
+    - '{bowerPath}lodash/lodash.min.js'
+    - '{bowerPath}happycalculator/src/happycalculator.js'
+  parsingErrors: []
