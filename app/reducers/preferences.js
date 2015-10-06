@@ -1,6 +1,6 @@
 import _ from "underscore";
 
-import {SET_PREFERENCE} from 'actions/preferences';
+import * as Actions from 'constants/ActionTypes';
 
 const initialState = {
   liveCoding: true
@@ -8,7 +8,7 @@ const initialState = {
 
 export function preferences(state = initialState, action) {
   switch (action.type) {
-    case SET_PREFERENCE:
+    case Actions.SET_PREFERENCE:
       return _.assign({}, state, {
         [action.key]: action.value
       });

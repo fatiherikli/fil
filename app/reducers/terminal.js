@@ -1,6 +1,7 @@
 import _ from "underscore";
 
-import {FLUSH, WRITE, ERROR, BREAK} from 'actions/terminal';
+import * as Actions from 'constants/ActionTypes';
+
 
 const initialState = {
   lines: [],
@@ -9,10 +10,10 @@ const initialState = {
 
 export function lines(state = [], action) {
   switch (action.type) {
-    case WRITE:
+    case Actions.WRITE:
       let head = state.slice(0, state.length - 1),
           tail = state[state.length - 1] || [];
-      
+
       return [...head, [...tail, action.chunk]];
 
     case BREAK:
@@ -25,18 +26,18 @@ export function lines(state = [], action) {
 
 export function terminal(state = initialState, action) {
   switch (action.type) {
-  case WRITE:
-  case BREAK:
+  case Actions.WRITE:
+  case Actions.BREAK:
     return _.assign({}, state, {
       lines: lines(state.lines, action)
     });
 
-  case ERROR:
+  case Actions.ERROR:
     return _.assign({}, state, {
       error: action.line
     });
 
-  case FLUSH:
+  case Actions.FLUSH:
     return initialState;
 
   default:
