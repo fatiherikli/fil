@@ -5,8 +5,8 @@ export const DELETE_FILE = 'DELETE_FILE';
 export const OPEN_FILE = 'OPEN_FILE';
 export const RENAME_FILE = 'RENAME_FILE';
 
-// Prefences contants
-export const SET_PREFERENCE = 'SET_PREFRENCE';
+// Preferences contants
+export const SET_PREFERENCE = 'SET_PREFERENCE';
 
 // Terminal constants
 export const WRITE_TERMINAL = 'WRITE_TERMINAL';
