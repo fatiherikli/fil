@@ -40,7 +40,7 @@ class ConsoleToolbar extends React.Component {
             checked={preferences.liveCoding}
             type="checkbox"
             name="toggle" />
-          <label for="toggle"><i></i></label>
+          <label htmlFor="toggle"><i></i></label>
           <span></span>
           <span className={block + "__live-coding-text"}>Live coding</span>
         </div>

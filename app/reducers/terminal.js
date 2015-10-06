@@ -10,13 +10,13 @@ const initialState = {
 
 export function lines(state = [], action) {
   switch (action.type) {
-    case Actions.WRITE:
+    case Actions.WRITE_TERMINAL:
       let head = state.slice(0, state.length - 1),
           tail = state[state.length - 1] || [];
 
       return [...head, [...tail, action.chunk]];
 
-    case BREAK:
+    case BREAK_TERMINAL:
       return [...state, []];
 
     default:
@@ -26,18 +26,18 @@ export function lines(state = [], action) {
 
 export function terminal(state = initialState, action) {
   switch (action.type) {
-  case Actions.WRITE:
-  case Actions.BREAK:
+  case Actions.WRITE_TERMINAL:
+  case Actions.BREAK_TERMINAL:
     return _.assign({}, state, {
       lines: lines(state.lines, action)
     });
 
-  case Actions.ERROR:
+  case Actions.ERROR_TERMINAL:
     return _.assign({}, state, {
       error: action.line
     });
 
-  case Actions.FLUSH:
+  case Actions.FLUSH_TERMINAL:
     return initialState;
 
   default:
