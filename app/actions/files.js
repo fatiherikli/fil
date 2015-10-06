@@ -1,25 +1,21 @@
-export const SAVE_FILE = 'SAVE_FILE';
-export const CREATE_FILE = 'CREATE_FILE';
-export const DELETE_FILE = 'DELETE_FILE';
-export const OPEN_FILE = 'OPEN_FILE';
-export const RENAME_FILE = 'RENAME_FILE';
+import * as Actions from 'constants/ActionTypes';
 
 export function saveFile(path, text) {
-  return { type: SAVE_FILE, path, text };
+  return { type: Actions.SAVE_FILE, path, text };
 }
 
 export function createFile(path, text = '') {
-  return { type: CREATE_FILE, path, text };
+  return { type: Actions.CREATE_FILE, path, text };
 }
 
 export function deleteFile(path) {
-  return { type: DELETE_FILE, path };
+  return { type: Actions.DELETE_FILE, path };
 }
 
 export function renameFile(path, newPath) {
-  return { type: RENAME_FILE, path, newPath };
+  return { type: Actions.RENAME_FILE, path, newPath };
 }
 
 export function openFile(path, text) {
-  return { type: OPEN_FILE, path };
+  return { type: Actions.OPEN_FILE, path };
 }
