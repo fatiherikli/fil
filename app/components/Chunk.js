@@ -38,19 +38,21 @@ class Dict extends React.Component {
 
     return (
       <table className={block}>
-        {_.keys(output).map(key => (
-          <tr key={key} className={block + "__item"}>
-            <td className={block + "__key"}>{key}:</td> 
-            <td className={block + "__val"}>
-              <Chunk chunk={output[key]} />
-            </td>
-          </tr>
-        ))}
-        {!_.keys(output).length && (
-          <tr>
-            <td className={block + "__item--empty"}></td>
-          </tr>
-        )}
+        <tbody>
+          {_.keys(output).map(key => (
+            <tr key={key} className={block + "__item"}>
+              <td className={block + "__key"}>{key}:</td> 
+              <td className={block + "__val"}>
+                <Chunk chunk={output[key]} />
+              </td>
+            </tr>
+          ))}
+          {!_.keys(output).length && (
+            <tr>
+              <td className={block + "__item--empty"}></td>
+            </tr>
+          )}
+        </tbody>
       </table>
     );
   }
