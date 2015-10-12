@@ -27,7 +27,7 @@ Live coding in your browser with your favourite language.
 
 ### Development
 
-First of all, clone the repository, and install NPM. After that, run the following commands.
+Clone the repository and run the following commands.
 
 ```
 $ npm install
@@ -35,11 +35,11 @@ $ bower install
 $ gulp build
 ```
 
-Now you can open `index.html` in your browser. Also you can run `gulp watch` command to listen and compile your changes.
+After the installation, you can open `index.html` in your browser. Also you can run `gulp watch` command to listen and compile your changes.
 
-### Adding new interpreter
+### Adding a new interpreter
 
-Fil speaks with web workers to interpret source code. The workers listens `message` event for source code, and streams with stringified JSON object for the output of program.
+Fil speaks with web workers to interpret the source codes. The workers listen `message` event for source code, and stream with stringified JSON object for the output of program.
 
 The message should be a plain text, like this:
 
@@ -108,7 +108,7 @@ markdown:
 
 ```
 
-Configuration object may contains the following values:
+The configuration object may contains the following values:
 
 key          | description
 ------------ | -------------
