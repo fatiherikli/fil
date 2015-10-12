@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var connect = require('gulp-connect');
+var gls = require('gulp-live-server');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
@@ -14,6 +16,19 @@ var yaml = require('yamljs');
 var babel = require("gulp-babel");
 var merge = require('merge2');
 
+var config = {
+  port: 9005,
+  devBaseUrl: 'http://localhost',
+  paths: {
+    html: './src/*.html',
+    js: './src/**/*.js',
+    css: [
+      'node_modules/bootstrap/dist/css/bootstrap.min.css',
+      'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'],
+    dist: './dist',
+    mainJs: './src/main.js'
+  }
+}
 function compile(watch) {
   var bundler = watchify(
       browserify('./app/main.js', {
@@ -86,6 +101,17 @@ gulp.task('watch-sass', function() {
   gulp.watch('./styles/*.scss', ['sass']);
 });
 
+//start local dev svr
+gulp.task('connect', function() {
+connect.server({
+    root: ['.'],
+    port: config.port,
+    base: config.devBaseUrl,
+    livereload: true
+  });
+
+})
+
 gulp.task('compress', function() {
   return gulp.src('build/main.js')
     .pipe(uglify())
@@ -96,4 +122,4 @@ gulp.task('compress', function() {
 gulp.task('js', function() { return compile(); });
 gulp.task('watch', function() { return compile(true); });
 gulp.task('build', ['js', 'buildWorkers', 'sass']);
-gulp.task('default', ['watch', 'watch-sass']);
+gulp.task('default', ['watch', 'watch-sass', 'connect']);

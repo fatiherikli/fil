@@ -1,5 +1,6 @@
 import _ from 'underscore';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
@@ -16,7 +17,7 @@ class FileRenameForm extends React.Component {
   }
 
   componentDidMount() {
-    React.findDOMNode(this.refs.fileName).select();
+    ReactDOM.findDOMNode(this.refs.fileName).select();
   }
 
   onSubmit(event) {
