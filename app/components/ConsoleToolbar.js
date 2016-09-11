@@ -44,10 +44,6 @@ class ConsoleToolbar extends React.Component {
           <span></span>
           <span className={block + "__live-coding-text"}>Live coding</span>
         </div>
-
-
-
-
       </div>
     );
   }
