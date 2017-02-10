@@ -16,7 +16,7 @@ export function lines(state = [], action) {
 
       return [...head, [...tail, action.chunk]];
 
-    case BREAK_TERMINAL:
+    case Actions.BREAK_TERMINAL:
       return [...state, []];
 
     default:
